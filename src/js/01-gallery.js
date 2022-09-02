@@ -29,6 +29,7 @@ function clickOnGalleryElementHandler(event) {
         close: true,
         caption: true,
         captionsData: 'alt',
+        captionPosition: 'bottom',
         captionDelay: 250,
     });
 }
