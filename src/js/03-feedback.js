@@ -6,11 +6,11 @@ const refs = {
 }
 
 refs.form.addEventListener('input', formInputHandler);
-/* onStartLoad(); */
+/* formLoad(); */
 /* console.log(refs.localStorageData); */
 
 
-function onStartLoad()
+function formLoad()
 {
     if(!localStorage.getItem("feedback-form-state")) {
         return;
@@ -21,5 +21,5 @@ function onStartLoad()
 };
 
 function formInputHandler (event) {
-    
+    console.log(event.currentTarget);
 }
