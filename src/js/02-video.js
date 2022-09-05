@@ -1,11 +1,18 @@
 
+    // libraries import
     import Player from '@vimeo/player';
+    import throttle from "lodash.throttle";
 
+    //finding iframe element
     const iframe = document.querySelector('iframe');
+
+    //initializing player
     const player = new Player(iframe);
 
+    //updating video starting time (if needed)
     setPlayerTime();
-
+    
+    //From library - example of intaraction witn library interface
     player.on('play', function() {
         console.log('played the video!');
     });
@@ -14,14 +21,17 @@
         console.log('title:', title);
     });
 
-    player.on('timeupdate', onTimeUpdateHandler);
+    //adding event listener for time update
+    player.on('timeupdate', throttle(onTimeUpdateHandler, [wait=500]) );
 
+    //handler for time update definition
     function onTimeUpdateHandler (data) {
        //console.log(data.seconds);
        localStorage.setItem("videoplayer-current-time", `${data.seconds}`);
        //console.log(localStorage.getItem("videoplayer-current-time"));
     }
 
+    //definition of function for setting starting time
     function setPlayerTime()
     {
         if (!localStorage.getItem("videoplayer-current-time"))

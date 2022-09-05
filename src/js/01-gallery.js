@@ -2,8 +2,10 @@
 import { galleryItems } from './gallery-items';
 // Change code below this line
 
+/*adding libraty*/
 import SimpleLightbox from "simplelightbox";
 
+/*adding library css module*/
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 /* finding gallery element*/
