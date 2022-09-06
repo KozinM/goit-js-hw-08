@@ -26,7 +26,7 @@ function formLoad()
         return;
     }
     console.log("form load: " + localStorage.getItem("feedback-form-state"));
-    refs.mail.value = JSON.parse(localStorage.getItem("feedback-form-state")).mail;
+    refs.mail.value = JSON.parse(localStorage.getItem("feedback-form-state")).email;
     refs.message.value = JSON.parse(localStorage.getItem("feedback-form-state")).message;
     /* refs.mail.value = */
 };
