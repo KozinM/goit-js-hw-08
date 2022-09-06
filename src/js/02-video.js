@@ -22,7 +22,7 @@
     }); */
 
     //adding event listener for time update
-    player.on('timeupdate', throttle(onTimeUpdateHandler, [wait=500]) );
+    player.on('timeupdate', throttle(onTimeUpdateHandler, 500) );
 
     //handler for time update definition
     function onTimeUpdateHandler (data) {
