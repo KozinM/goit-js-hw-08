@@ -24,10 +24,10 @@ galleryElement.addEventListener('click', clickOnGalleryElementHandler);
 
 /* defining clickOnGalleryElementHandler*/
 function clickOnGalleryElementHandler(event) {
-    if (event.target.nodeName!=="IMG"){
+/*     if (event.target.nodeName!=="IMG"){
     return;
     }
-    event.preventDefault();
+    event.preventDefault(); */
     new SimpleLightbox ('.gallery a', {
         nav: true,
         close: true,

@@ -13,13 +13,13 @@
     setPlayerTime();
     
     //From library - example of intaraction witn library interface
-    player.on('play', function() {
+/*     player.on('play', function() {
         console.log('played the video!');
     });
 
     player.getVideoTitle().then(function(title) {
         console.log('title:', title);
-    });
+    }); */
 
     //adding event listener for time update
     player.on('timeupdate', throttle(onTimeUpdateHandler, [wait=500]) );
@@ -34,7 +34,8 @@
     //definition of function for setting starting time
     function setPlayerTime()
     {
-        if (!localStorage.getItem("videoplayer-current-time"))
+        const playerTimingPreset = localStorage.getItem("videoplayer-current-time");
+        if (!playerTimingPreset)
         return;
         player.setCurrentTime(localStorage.getItem("videoplayer-current-time"));
     }
