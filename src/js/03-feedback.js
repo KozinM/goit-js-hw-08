@@ -7,6 +7,9 @@ const refs = {
     message: document.querySelector("[name=message]"),
 }
 
+//initializing variable for saving form's data
+const formData = {};
+
 //initializing form in case of reload or something
 formLoad();
 
@@ -16,25 +19,28 @@ refs.form.addEventListener('input', throttle(formInputHandler, 500));
 //adding event listiner for submit handling
 refs.form.addEventListener('submit', formSubmitHandler);
 
-//initializing variable for saving form's data
-const formData = {};
+
 
 //defining function for form initializing
 function formLoad()
 {
-    if(!localStorage.getItem("feedback-form-state")) {
-        return;
+    let fromStorageData = localStorage.getItem("feedback-form-state");
+    if(fromStorageData) {
+       fromStorageData = JSON.parse(fromStorageData);
+       Object.entries(fromStorageData).forEach(([name,value])=>{
+        formData[name]=value;
+        refs.form.elements[name].value = value;});
     }
-    console.log("form load: " + localStorage.getItem("feedback-form-state"));
+    /* console.log("form load: " + localStorage.getItem("feedback-form-state"));
     refs.mail.value = JSON.parse(localStorage.getItem("feedback-form-state")).email;
-    refs.message.value = JSON.parse(localStorage.getItem("feedback-form-state")).message;
+    refs.message.value = JSON.parse(localStorage.getItem("feedback-form-state")).message; */
     /* refs.mail.value = */
 };
 
 //defining input handler
 function formInputHandler (event) {
 
-    console.log(event.target.name);
+    //console.log(event.target.name);
 
     formData[event.target.name] = event.target.value;
 
