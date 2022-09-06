@@ -11,7 +11,7 @@ const refs = {
 formLoad();
 
 //adding event listiner for input handling
-refs.form.addEventListener('input', throttle(formInputHandler, [wait=500]));
+refs.form.addEventListener('input', throttle(formInputHandler, 500));
 
 //adding event listiner for submit handling
 refs.form.addEventListener('submit', formSubmitHandler);
