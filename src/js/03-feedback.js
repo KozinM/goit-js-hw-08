@@ -8,7 +8,7 @@ const refs = {
 }
 
 //initializing variable for saving form's data
-const formData = {};
+let formData = {};
 
 //initializing form in case of reload or something
 formLoad();
@@ -54,6 +54,8 @@ function formSubmitHandler(event) {
 
     event.preventDefault();
     
+    formData = {};
+
     console.log("output to console"+localStorage.getItem("feedback-form-state"));
 
     localStorage.removeItem("feedback-form-state");
